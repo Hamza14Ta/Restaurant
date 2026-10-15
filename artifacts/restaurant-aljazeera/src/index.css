@@ -917,3 +917,86 @@
   .story-highlights li { font-size: 9px; }
   .service-actions { gap: 12px; }
 }
+
+html.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 680ms cubic-bezier(.2,.7,.2,1) var(--reveal-delay, 0ms),
+    transform 680ms cubic-bezier(.2,.7,.2,1) var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+html.reveal-ready [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+.menu-card:nth-child(3n + 2), .gallery-tile:nth-child(3n + 2), .review-note:nth-child(2) { --reveal-delay: 90ms; }
+.menu-card:nth-child(3n + 3), .gallery-tile:nth-child(3n + 3), .review-note:nth-child(3) { --reveal-delay: 170ms; }
+.menu-card[data-reveal].is-visible:hover { transform: translateY(-5px); }
+.gallery-tile[data-reveal].is-visible:hover { transform: translateY(-3px); }
+.story-photo { transition: transform 850ms cubic-bezier(.2,.7,.2,1); }
+.story-photo-wrap:hover .story-photo { transform: scale(1.035); }
+.menu-image-wrap img { transition: transform 650ms cubic-bezier(.2,.7,.2,1); }
+.menu-card:hover .menu-image-wrap img { transform: scale(1.055); }
+.service-row { transition: background-color 250ms ease, padding 250ms ease, border-color 250ms ease; }
+.service-row:hover { padding-left: 10px; background: rgba(245,241,232,.045); border-color: rgba(213,182,117,.6); }
+.service-row > a { transition: background-color 220ms ease, color 220ms ease, transform 220ms ease; }
+.service-row > a:hover { transform: rotate(8deg) scale(1.06); }
+.faq-item button { transition: color 200ms ease; }
+.faq-item button:hover { color: #a27a3b; }
+.brand-seal { transition: transform 350ms cubic-bezier(.2,.7,.2,1), border-color 250ms ease; }
+.brand-mark:hover .brand-seal { transform: rotate(-5deg); border-color: #c69b52; }
+.gallery-tile { transition: transform 300ms ease, box-shadow 300ms ease; }
+.gallery-tile:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(20,45,36,.17); }
+.gallery-tile:hover::after { opacity: 1; }
+.action-link:focus-visible, .social-contact:focus-visible, .whatsapp-float:focus-visible {
+  outline: 2px solid #d5b675;
+  outline-offset: 4px;
+}
+.social-contact-list { display: grid; gap: 12px; }
+.social-contact {
+  min-height: 25px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #d3d5c9;
+  font-size: 10px;
+  text-decoration: none;
+  transition: color 200ms ease, transform 200ms ease;
+}
+.social-contact > svg:first-child { width: 15px; height: 15px; color: #d5b675; }
+.social-contact > svg:last-child { width: 12px; height: 12px; }
+.social-contact:hover { color: #f4efe4; transform: translateX(3px); }
+.social-contact small { color: #aeb2a4; font-size: 8px; margin-left: auto; }
+.social-pending { opacity: .72; }
+.whatsapp-float {
+  position: fixed;
+  z-index: 50;
+  right: 22px;
+  bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+  min-height: 52px;
+  padding: 0 17px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 999px;
+  background: #1e6b4b;
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(12,35,25,.25);
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+}
+.whatsapp-float svg { width: 21px; height: 21px; }
+.whatsapp-float:hover { transform: translateY(-4px); background: #247b56; box-shadow: 0 13px 30px rgba(12,35,25,.32); }
+@media (max-width: 767px) {
+  .whatsapp-float { right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); width: 54px; height: 54px; min-height: 54px; padding: 0; justify-content: center; }
+  .whatsapp-float span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.reveal-ready [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; will-change: auto; }
+  .story-photo, .menu-image-wrap img, .service-row, .service-row > a, .faq-item button,
+  .brand-seal, .gallery-tile, .whatsapp-float, .social-contact {
+    transition: none !important;
+    animation: none !important;
+  }
+}

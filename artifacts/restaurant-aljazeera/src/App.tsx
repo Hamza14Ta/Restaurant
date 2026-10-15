@@ -16,11 +16,14 @@ import {
   Utensils,
   X,
 } from 'lucide-react';
+import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { restaurant, type MenuItem } from './data/restaurant';
 
 const phoneLink = restaurant.phoneHref;
 const glovoAvailable = Boolean(restaurant.external.glovoUrl);
 const instagramAvailable = Boolean(restaurant.external.instagramUrl);
+const facebookAvailable = Boolean(restaurant.external.facebookUrl);
+const whatsappAvailable = Boolean(restaurant.external.whatsappUrl);
 
 function menuPriceLabel(item: MenuItem) {
   const price = item.price ?? 'Price available at restaurant';
@@ -92,6 +95,29 @@ function App() {
     };
   }, [activeImage]);
 
+  useEffect(() => {
+    const targets = document.querySelectorAll<HTMLElement>('[data-reveal]');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || typeof IntersectionObserver === 'undefined') {
+      document.documentElement.classList.remove('reveal-ready');
+      return undefined;
+    }
+
+    document.documentElement.classList.add('reveal-ready');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.14, rootMargin: '0px 0px -32px 0px' },
+    );
+    targets.forEach((target) => observer.observe(target));
+    return () => observer.disconnect();
+  }, [category]);
+
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Restaurant',
@@ -145,7 +171,7 @@ function App() {
       <main>
         <section className="hero hero-photo" aria-labelledby="hero-title">
           <div className="hero-pattern" aria-hidden="true" />
-          <div className="container-wide hero-content">
+          <div className="container-wide hero-content" data-reveal>
             <p className="eyebrow hero-eyebrow"><span /> Authentic Yemeni &amp; Arabian cuisine</p>
             <h1 className="display" id="hero-title">A Taste of Arabia,<br />in the Heart of <em>Tangier.</em></h1>
             <p className="arabic hero-arabic" lang="ar" dir="rtl">{restaurant.arabicName}</p>
@@ -162,7 +188,7 @@ function App() {
         </section>
 
         <section className="highlights" id="highlights" aria-label="Restaurant highlights">
-          <div className="container-wide highlights-inner">
+          <div className="container-wide highlights-inner" data-reveal>
             <div className="rating-highlight">
               <div className="rating-stars" aria-label={`${restaurant.rating} out of 5 stars`}>
                 {Array.from({ length: 5 }, (_, index) => <Star key={index} size={14} fill="currentColor" strokeWidth={1} aria-hidden="true" />)}
@@ -180,12 +206,12 @@ function App() {
 
         <section className="story-section section-pad" id="story">
           <div className="container-wide story-layout">
-            <div className="story-photo-wrap">
+            <div className="story-photo-wrap" data-reveal>
               <img className="story-photo" src="/images/restaurant-interior.jpg" alt="Warmly lit restaurant interior with green seating and brass details" />
               <div className="story-stamp"><span className="arabic" lang="ar" dir="rtl">أهلاً وسهلاً</span><small>WELCOME · أهلاً</small></div>
               <span className="photo-credit-label">A place to come together</span>
             </div>
-            <div className="story-copy">
+            <div className="story-copy" data-reveal>
               <p className="eyebrow section-eyebrow">A table with room for you</p>
               <h2 className="display">Hospitality Rooted in <em>Arabian Tradition</em></h2>
               <p className="story-lede">At Aljazeera Alarabia, the welcome is simple: come as you are, find your place, and share a meal.</p>
@@ -203,14 +229,14 @@ function App() {
 
         <section className="menu-section section-pad" id="menu">
           <div className="container-wide">
-            <div className="menu-heading">
+            <div className="menu-heading" data-reveal>
               <div>
                 <p className="eyebrow section-eyebrow">From our table</p>
                 <h2 className="display">Discover Our Menu</h2>
               </div>
               <p className="menu-intro">From aromatic rice specialties to fresh mezze and comforting favorites.</p>
             </div>
-            <div className="menu-filters" role="group" aria-label="Filter menu by category">
+            <div className="menu-filters" role="group" aria-label="Filter menu by category" data-reveal>
               {restaurant.categories.map((item) => (
                 <button type="button" className={`filter-chip ${category === item ? 'filter-active' : ''}`} key={item} aria-pressed={category === item} onClick={() => setCategory(item)}>
                   {item}
@@ -219,7 +245,7 @@ function App() {
             </div>
             <div className="menu-grid" aria-live="polite">
               {visibleMenu.map((item, index) => (
-                <article className={`menu-card ${index === 0 ? 'menu-card-featured' : ''}`} key={item.name}>
+                <article className={`menu-card ${index === 0 ? 'menu-card-featured' : ''}`} key={item.name} data-reveal>
                   <div className="menu-image-wrap">
                     {item.image ? (
                       <img src={item.image} alt={item.alt} loading="lazy" />
@@ -244,7 +270,7 @@ function App() {
 
         <section className="reviews-section section-pad" id="reviews">
           <div className="container-wide reviews-layout">
-            <div className="reviews-lead">
+            <div className="reviews-lead" data-reveal>
               <p className="eyebrow">Good words travel</p>
               <h2 className="display">What Our Guests Say</h2>
               <p>Paraphrased guest highlights — not direct quotations.</p>
@@ -253,7 +279,7 @@ function App() {
             </div>
             <div className="review-notes">
               {restaurant.reviewHighlights.map((highlight, index) => (
-                <article className="review-note" key={highlight}>
+                <article className="review-note" key={highlight} data-reveal>
                   <span className="review-index">0{index + 1}</span>
                   <div><p>{highlight}</p><small>PARAPHRASED GUEST HIGHLIGHT</small></div>
                   <span className="review-mark" aria-hidden="true">“</span>
@@ -265,13 +291,13 @@ function App() {
 
         <section className="gallery-section section-pad" id="gallery">
           <div className="container-wide">
-            <div className="gallery-heading">
+            <div className="gallery-heading" data-reveal>
             <div><p className="eyebrow section-eyebrow">A little look around</p><h2 className="display">A Feast for the Senses</h2></div>
               <p>Food and atmosphere, imagined for your next visit.</p>
             </div>
             <div className="gallery-grid">
               {restaurant.gallery.map((image, index) => (
-                <button type="button" className={`gallery-tile gallery-tile-${index + 1}`} key={image.src} onClick={() => setActiveImage(index)} aria-label={`Open photo: ${image.caption}`} data-testid={`gallery-image-${index + 1}`}>
+                <button type="button" className={`gallery-tile gallery-tile-${index + 1}`} key={image.src} onClick={() => setActiveImage(index)} aria-label={`Open photo: ${image.caption}`} data-testid={`gallery-image-${index + 1}`} data-reveal>
                   <img src={image.src} alt={image.alt} loading="lazy" />
                   <span className="gallery-caption">{image.caption}<ArrowUpRight size={15} /></span>
                 </button>
@@ -282,33 +308,33 @@ function App() {
 
         <section className="services-section section-pad" id="services">
           <div className="container-wide services-layout">
-            <div className="services-intro">
+            <div className="services-intro" data-reveal>
               <p className="eyebrow">The way you like it</p>
               <h2 className="display">Your Table, Your Way</h2>
               <p>Join us in person or get in touch to ask about enjoying your meal at home.</p>
             </div>
             <div className="service-list">
-              <article className="service-row">
+              <article className="service-row" data-reveal>
                 <span className="service-icon"><Utensils /></span>
                 <div><h3 className="display">Dine in</h3><p>Settle in and enjoy a meal at the restaurant.</p></div>
                 <a href={restaurant.directionsUrl} target="_blank" rel="noreferrer" aria-label="Get directions for dine-in"><ArrowUpRight /></a>
               </article>
-              <article className="service-row">
+              <article className="service-row" data-reveal>
                 <span className="service-icon"><Truck /></span>
                 <div><h3 className="display">Delivery</h3><p>Contactless delivery is listed. Ask us about current availability and ordering.</p></div>
                 <a href={glovoAvailable ? restaurant.external.glovoUrl : phoneLink} target={glovoAvailable ? '_blank' : undefined} rel={glovoAvailable ? 'noreferrer' : undefined} aria-label={glovoAvailable ? 'Order through Glovo' : 'Call about delivery'}><ArrowUpRight /></a>
               </article>
-              <article className="service-row">
+              <article className="service-row" data-reveal>
                 <span className="service-icon"><Phone /></span>
                 <div><h3 className="display">Takeaway & drive service</h3><p>Contact us to ask what’s available. {restaurant.driveServiceNote}</p></div>
                 <a href={phoneLink} aria-label="Call about takeaway"><ArrowUpRight /></a>
               </article>
-              <div className="service-callout">
+              <div className="service-callout" data-reveal>
                 <span>{glovoAvailable ? 'Order online' : 'Order details not listed'}</span>
                 <p>{glovoAvailable ? 'Continue to the restaurant’s confirmed Glovo listing.' : 'A delivery listing mentions Glovo. Call us to confirm the current ordering link.'}</p>
                 {glovoAvailable ? <ActionLink href={restaurant.external.glovoUrl} target="_blank" rel="noreferrer">Continue to Glovo</ActionLink> : <ActionLink href={phoneLink}>Call the restaurant</ActionLink>}
               </div>
-              <div className="service-actions" aria-label="Ordering and contact actions">
+              <div className="service-actions" aria-label="Ordering and contact actions" data-reveal>
                 <ActionLink href={phoneLink}>Call to Order</ActionLink>
                 <ActionLink href={glovoAvailable ? restaurant.external.glovoUrl : phoneLink} target={glovoAvailable ? '_blank' : undefined} rel={glovoAvailable ? 'noreferrer' : undefined} variant="outline">{glovoAvailable ? 'Order on Glovo' : 'Ask About Glovo'}</ActionLink>
                 <ActionLink href="#visit" variant="text">Contact Us</ActionLink>
@@ -319,7 +345,7 @@ function App() {
 
         <section className="visit-section section-pad" id="visit">
           <div className="container-wide visit-layout">
-            <div className="visit-copy">
+            <div className="visit-copy" data-reveal>
               <p className="eyebrow section-eyebrow">Come find us</p>
               <h2 className="display">Visit Us in Tangier</h2>
               <div className="visit-detail"><MapPin size={19} /><div><small>OUR ADDRESS</small><p>{restaurant.address}</p></div></div>
@@ -332,7 +358,7 @@ function App() {
               </div>
               <div className="service-fact"><Check size={15} /><span>Dine-in and contactless delivery are listed.</span></div>
             </div>
-            <div className="map-panel">
+            <div className="map-panel" data-reveal>
               {restaurant.external.googleMapsEmbedUrl ? (
                 <iframe title={`Map showing ${restaurant.name}`} src={restaurant.external.googleMapsEmbedUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
               ) : (
@@ -351,7 +377,7 @@ function App() {
 
         <section className="faq-section section-pad" id="faq">
           <div className="container-wide faq-layout">
-            <div className="faq-lead">
+            <div className="faq-lead" data-reveal>
               <p className="eyebrow section-eyebrow">A few useful things</p>
               <h2 className="display">Before you<br /><em>make your way.</em></h2>
               <p>Still have a question? Give us a call and we’ll help you plan.</p>
@@ -359,7 +385,7 @@ function App() {
             </div>
             <div className="faq-list">
               {restaurant.faqs.map((faq, index) => (
-                <div className={`faq-item ${activeFaq === index ? 'faq-open' : ''}`} key={faq.question}>
+                <div className={`faq-item ${activeFaq === index ? 'faq-open' : ''}`} key={faq.question} data-reveal>
                   <h3>
                     <button type="button" aria-expanded={activeFaq === index} aria-controls={`faq-answer-${index}`} onClick={() => setActiveFaq(activeFaq === index ? null : index)}>
                       <span>{faq.question}</span><ChevronDown size={18} />
@@ -374,7 +400,7 @@ function App() {
 
         <section className="closing-cta">
           <div className="closing-pattern" aria-hidden="true" />
-          <div className="container-wide closing-content">
+          <div className="container-wide closing-content" data-reveal>
             <p className="eyebrow">Your place is at the table</p>
               <h2 className="display">Good Food. Great Company.<br /><em>Arabian Hospitality.</em></h2>
               <p>Make your next meal in Tangier a flavorful experience.</p>
@@ -389,17 +415,57 @@ function App() {
       </main>
 
       <footer className="site-footer">
-        <div className="container-wide footer-main">
+        <div className="container-wide footer-main" data-reveal>
           <div className="footer-brand"><BrandMark inverse /><p>A generous table of Yemeni cuisine and Arabic dishes in Tangier.</p></div>
           <div className="footer-column"><small>EXPLORE</small><a href="#story">Our story</a><a href="#menu">The menu</a><a href="#gallery">Gallery</a><a href="#faq">FAQs</a></div>
           <div className="footer-column"><small>VISIT</small><a href={restaurant.mapSearchUrl} target="_blank" rel="noreferrer">Google Maps <ArrowUpRight size={13} /></a><a href={restaurant.directionsUrl} target="_blank" rel="noreferrer">Get directions</a><a href={phoneLink}>Call the restaurant</a><p>{restaurant.address}</p><p>Dine-in and contactless delivery listed.</p></div>
           <div className="footer-column"><small>FOLLOW & ORDER</small>
-            {instagramAvailable ? <a href={restaurant.external.instagramUrl} target="_blank" rel="noreferrer">Instagram <ArrowUpRight size={13} /></a> : <span>Instagram listing available; link not confirmed</span>}
+            <div className="social-contact-list">
+              {instagramAvailable ? (
+                <a className="social-contact" href={restaurant.external.instagramUrl} target="_blank" rel="noreferrer" aria-label="Visit Instagram">
+                  <FaInstagram aria-hidden="true" /><span>Instagram</span><ArrowUpRight size={13} aria-hidden="true" />
+                </a>
+              ) : (
+                <span className="social-contact social-pending" aria-label="Instagram profile link not configured">
+                  <FaInstagram aria-hidden="true" /><span>Instagram</span><small>Profile link needed</small>
+                </span>
+              )}
+              {facebookAvailable ? (
+                <a className="social-contact" href={restaurant.external.facebookUrl} target="_blank" rel="noreferrer" aria-label="Visit Facebook">
+                  <FaFacebookF aria-hidden="true" /><span>Facebook</span><ArrowUpRight size={13} aria-hidden="true" />
+                </a>
+              ) : (
+                <span className="social-contact social-pending" aria-label="Facebook profile link not configured">
+                  <FaFacebookF aria-hidden="true" /><span>Facebook</span><small>Profile link needed</small>
+                </span>
+              )}
+              {whatsappAvailable ? (
+                <a className="social-contact" href={restaurant.external.whatsappUrl} target="_blank" rel="noreferrer" aria-label="Chat with the restaurant on WhatsApp">
+                  <FaWhatsapp aria-hidden="true" /><span>WhatsApp</span><ArrowUpRight size={13} aria-hidden="true" />
+                </a>
+              ) : (
+                <a className="social-contact" href={phoneLink} aria-label="Call the restaurant">
+                  <FaWhatsapp aria-hidden="true" /><span>WhatsApp</span><small>Call {restaurant.phone}</small>
+                </a>
+              )}
+            </div>
             {glovoAvailable ? <a href={restaurant.external.glovoUrl} target="_blank" rel="noreferrer">Order via Glovo <ArrowUpRight size={13} /></a> : <span>Glovo listing mentioned; link not confirmed</span>}
           </div>
         </div>
         <div className="container-wide footer-bottom"><span>© {new Date().getFullYear()} {restaurant.name}. All rights reserved.</span><span className="arabic" lang="ar" dir="rtl">{restaurant.arabicName}</span><span>Made with care in Tangier</span><a href="#top">Back to top <ArrowUpRight size={13} /></a></div>
       </footer>
+
+      <a
+        className="whatsapp-float"
+        href={whatsappAvailable ? restaurant.external.whatsappUrl : phoneLink}
+        target={whatsappAvailable ? '_blank' : undefined}
+        rel={whatsappAvailable ? 'noreferrer' : undefined}
+        aria-label={whatsappAvailable ? 'Message Restaurant Aljazeera Alarabia on WhatsApp' : `Call ${restaurant.name}`}
+        data-testid="link-whatsapp-floating"
+      >
+        <FaWhatsapp aria-hidden="true" />
+        <span>{whatsappAvailable ? 'Message us' : 'Call us'}</span>
+      </a>
 
       {activeImage !== null && (
         <div className="lightbox-backdrop" role="presentation" onClick={() => setActiveImage(null)}>

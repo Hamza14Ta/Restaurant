@@ -37,6 +37,9 @@ export const restaurant = {
     // Add confirmed owner-managed URLs here. Empty values gracefully fall back to search/contact.
     glovoUrl: '',
     instagramUrl: '',
+    facebookUrl: '',
+    // Uses the supplied restaurant phone; change if WhatsApp uses another number.
+    whatsappUrl: 'https://wa.me/212665601177',
     googleMapsEmbedUrl: '',
     googleMapsReviewsUrl: '',
   },
