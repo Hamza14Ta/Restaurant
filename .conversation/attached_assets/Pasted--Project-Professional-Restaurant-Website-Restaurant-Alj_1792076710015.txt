@@ -1,0 +1,460 @@
+# Project: Professional Restaurant Website — Restaurant Aljazeera Alarabia
+
+Act as a senior full-stack developer, UI/UX designer, and restaurant branding specialist. Build a complete, professional, visually stunning, production-ready website for **Restaurant Aljazeera Alarabia (مطعم الجزيرة العربية)**, a Yemeni and Arabic cuisine restaurant located in Tangier, Morocco.
+
+The website should look like it was designed by a premium digital agency for a real restaurant business. Do not create a generic restaurant template. Create a distinctive visual identity inspired by Yemeni hospitality, traditional Arabian architecture, rich food culture, and modern luxury restaurant branding.
+
+## 1. Restaurant Information
+
+Use the following verified business information throughout the website:
+
+- **Restaurant name:** Restaurant Aljazeera Alarabia
+- **Arabic name:** مطعم الجزيرة العربية
+- **Cuisine:** Yemeni cuisine, Arabic dishes, Middle Eastern food
+- **Google Maps rating:** 4.4/5
+- **Number of Google Maps reviews:** 485
+- **Average price per person:** 50–250 MAD
+- **Address:** Q5GX+88F, Avenue Mohammed V, Tangier 90000, Morocco
+- **Phone:** +212 6 65 60 11 77
+- **Opening status from the supplied listing:** Listed as closing at midnight. Make business hours configurable in one central data file and do not invent a complete weekly schedule.
+- **Dine-in:** Available
+- **Drive-through / drive service:** Listed as available; confirm the exact service before presenting specific operational details.
+- **Contactless delivery:** Listed as available
+- **Online delivery:** Glovo
+- **Menu/social link:** Instagram
+- **Popular dishes:** Chicken Mandi with spiced rice, Chicken Kabsa, meat biryani, shawarma, tabbouleh, fattoush, Krispy dish, cucumber-yogurt salad, warm flatbread, appetizer platter, yogurt dip, chopped tomato and cucumber salad.
+
+Use the restaurant information accurately. Do not invent awards, chef names, years of establishment, certifications, exact dish prices, opening hours, customer testimonials, or business claims that have not been provided.
+
+## 2. Technology and Implementation
+
+Build a complete website using a modern, maintainable stack:
+
+- React with TypeScript.
+- Vite for the development environment.
+- Tailwind CSS for styling.
+- Lucide React for icons.
+- React Router if multiple pages are genuinely useful; otherwise, build a polished single-page website with smooth navigation.
+- Use reusable components and a clean project structure.
+- Store restaurant details, menu items, contact information, and opening hours in a centralized data file.
+- Use semantic HTML, accessible interactions, responsive layouts, and SEO-friendly metadata.
+
+The website must run correctly in Replit. Install the necessary dependencies, start the development server, test the main interactions, and fix errors before considering the task complete.
+
+Do not merely produce a mockup or a static screenshot. Build the actual working website.
+
+## 3. Visual Identity and Art Direction
+
+Create a premium Arabian restaurant aesthetic.
+
+**Color palette:**
+- Deep forest green: #173D30
+- Warm ivory: #F8F3E8
+- Antique gold: #C69B52
+- Dark charcoal: #24231F
+- Muted sage: #A8B5A0
+
+Use ivory as the main background, deep green for prominent sections and navigation, and antique gold for subtle accents, borders, icons, and primary calls to action.
+
+**Typography:**
+- Use a sophisticated serif font for large headings, such as Playfair Display.
+- Use a clean sans-serif font for body text, such as Inter.
+- Use a legible Arabic font, such as Cairo or Noto Sans Arabic, for Arabic text.
+
+**Design principles:**
+- Editorial-quality food photography.
+- Generous white space.
+- Beautiful typography and balanced composition.
+- Elegant cards with subtle shadows and rounded corners.
+- Delicate Arabian geometric motifs used sparingly.
+- Smooth scrolling and tasteful micro-interactions.
+- Refined hover animations.
+- Consistent spacing, visual hierarchy, and alignment.
+- Avoid excessive gradients, neon colors, oversized rounded cards, and generic AI-generated layouts.
+
+The website should feel authentic, welcoming, sophisticated, and premium without losing the warmth of a traditional Yemeni restaurant.
+
+## 4. Header and Navigation
+
+Create a polished, responsive header.
+
+**Desktop header:**
+- Left: elegant restaurant logo featuring a subtle Arabian-inspired emblem and the name “ALJAZEERA ALARABIA”.
+- Under or beside the name, display “مطعم الجزيرة العربية” in Arabic.
+- Center: navigation links — Home, Our Story, Menu, Gallery, Reviews, Contact.
+- Right: a prominent “Order Now” button.
+
+**Behavior:**
+- Make the header sticky on scroll.
+- Add a subtle background and shadow after scrolling.
+- Smoothly scroll to the corresponding sections.
+- Highlight the active section where practical.
+- Use a working mobile navigation drawer or dropdown.
+- Ensure all links and buttons are functional.
+
+The logo should be typographic and elegant, not a random placeholder icon.
+
+## 5. Hero Section
+
+Create a visually striking, premium hero section that immediately communicates the restaurant's cuisine and personality.
+
+Use a two-column layout on desktop:
+
+**Left column:**
+- Small eyebrow text: “AUTHENTIC YEMENI & ARABIAN CUISINE”
+- Main headline: “A Taste of Arabia, in the Heart of Tangier.”
+- Supporting text: “Discover the warmth of Arabian hospitality through aromatic rice dishes, traditional spices, generous plates, and flavors made to bring people together.”
+- Rating badge: “4.4/5 · 485 Google reviews”.
+- Primary CTA: “Explore Our Menu”.
+- Secondary CTA: “Find Us in Tangier”.
+- Optional small service indicators: Dine In · Delivery · Takeaway/Drive Service, using only accurate labels.
+
+**Right column:**
+- Use a high-quality photograph of an authentic Yemeni mandi rice platter with roasted chicken, aromatic rice, fresh herbs, and traditional serving dishes.
+- Create a tasteful image composition with a large main image and subtle decorative accents.
+- Include a floating rating card reading “Loved by locals and visitors” only if framed as general promotional copy, not as an independently verified statistic.
+- Add a subtle gold decorative element.
+
+The hero must look impressive on desktop and remain readable and visually balanced on mobile.
+
+Use authentic food photography, not cartoon illustrations. If remote images are used, use stable image URLs and provide attractive fallback backgrounds. Do not hotlink images from Google Maps or copy photographs from individual reviewers without permission.
+
+## 6. Trust and Highlights Bar
+
+Immediately after the hero, add a compact section highlighting:
+
+- ⭐ 4.4/5 Google rating
+- 485 customer reviews
+- 50–250 MAD per person
+- Yemeni and Arabic cuisine
+- Tangier, Morocco
+
+Use refined icons and clear typography. Ensure the figures match the supplied information.
+
+## 7. Our Story Section
+
+Create an elegant section titled “Hospitality Rooted in Arabian Tradition”.
+
+Write concise, inviting copy about the restaurant's focus on Yemeni and Arabic flavors, aromatic spices, generous meals, and welcoming dining.
+
+Do not claim a specific founding date, family history, heritage certification, or chef biography because those details have not been supplied.
+
+Layout:
+- One large food or restaurant-atmosphere photograph.
+- A text column with a small decorative heading.
+- A paragraph describing the dining experience.
+- Three small highlights: “Rich Arabian Flavors”, “Generous Plates”, and “Warm Hospitality”.
+
+## 8. Menu Section
+
+Create a beautifully designed, interactive restaurant menu.
+
+Section heading: “Discover Our Menu”.
+
+Subtitle: “From aromatic rice specialties to fresh mezze and comforting favorites.”
+
+Add category filter buttons:
+- All
+- Signature Rice Dishes
+- Main Courses
+- Mezze & Salads
+- Sides & Accompaniments
+
+Use attractive food images, clean cards, dish names, short descriptions, and optional “Popular” labels.
+
+Start with the following dishes, all based on the information supplied:
+
+**Signature Rice Dishes**
+1. Chicken Mandi with Spiced Rice — aromatic rice served with chicken and warming spices.
+2. Chicken Kabsa — a traditional Arabian-style chicken and spiced rice dish.
+3. Meat Biryani — fragrant rice prepared with meat and spices.
+
+**Main Courses**
+4. Shawarma — seasoned meat served in a Middle Eastern-style preparation.
+5. Krispy Dish — retain this name until the restaurant confirms the exact ingredients and preparation.
+
+**Mezze & Salads**
+6. Tabbouleh — a fresh herb and bulgur salad.
+7. Fattoush — a refreshing Middle Eastern salad.
+8. Cucumber & Yogurt Salad — cool yogurt with cucumber.
+9. Tomato & Cucumber Salad — freshly chopped vegetables.
+10. Appetizer Platter — a selection of starters, with the exact contents to be confirmed.
+
+**Sides & Accompaniments**
+11. Warm Flatbread.
+12. Yogurt Dip.
+
+Use short, appealing descriptions without making unsupported ingredient or dietary claims.
+
+Important menu rules:
+- Do not invent prices. Display “Price available at restaurant” or omit prices until the restaurant supplies an official menu.
+- Do not invent ingredients for the Krispy dish.
+- Do not label dishes vegan, vegetarian, halal-certified, gluten-free, or allergen-free without confirmation.
+- Allow the restaurant owner to update dish names, descriptions, images, categories, availability, and prices easily through the centralized menu data.
+- Make category filters work.
+- Add subtle hover effects and responsive card layouts.
+- Include a CTA beneath the menu: “Ask About Today's Menu”.
+
+## 9. Food Photography Gallery
+
+Build an elegant gallery section titled “A Feast for the Senses”.
+
+Use a responsive grid or masonry-style composition with high-quality images showing:
+- Chicken mandi and aromatic rice.
+- Chicken kabsa.
+- Meat biryani.
+- Shawarma.
+- Tabbouleh and fattoush.
+- Arabian appetizers and yogurt dips.
+- Warm flatbread.
+- Restaurant dining atmosphere.
+
+Use distinct images where possible, with correct alt text. Do not repeat the same photograph across every menu item.
+
+When a gallery image is clicked, open an accessible lightbox with next/previous controls, an escape-key close action, and a visible close button.
+
+Use properly licensed or otherwise permitted images. Keep image sources easy to replace with authentic restaurant photography later.
+
+## 10. Customer Reviews Section
+
+Create a trustworthy reviews section using the supplied Google Maps summary.
+
+Heading: “What Our Guests Say”.
+
+Display:
+- Average rating: 4.4/5.
+- Total reviews: 485.
+- Five-star visual rating indicator.
+- A clear “Read More Reviews on Google” link.
+
+Use these three review summaries based on the information provided:
+
+**Review 1 — Family dining**
+A customer described visiting with a family of four, appreciating the welcoming atmosphere and great service.
+
+**Review 2 — Generous portions**
+A customer praised the meat biryani, tabbouleh, and cucumber-yogurt salad, highlighting the tasty food and generous portions for the price.
+
+**Review 3 — Variety and flavor**
+A customer praised the pizza, fresh mezze, and chicken Caesar salad for their taste and preparation.
+
+Label these as paraphrased review highlights rather than verbatim quotations. Do not invent customer names, exact dates, or star ratings for individual reviews.
+
+Add a button that opens the restaurant's Google Maps listing. If the exact review URL cannot be confirmed, keep it configurable and use a Google Maps search URL based on the restaurant name and address as a fallback.
+
+Do not create a fake review submission system that pretends to publish reviews to Google.
+
+## 11. Services and Ordering
+
+Create a clean section titled “Your Table, Your Way”.
+
+Include three service cards:
+
+**Dine In**
+“Enjoy Arabian flavors in a welcoming restaurant atmosphere.”
+
+**Delivery**
+“Order for delivery and enjoy your favorites at home.”
+
+**Takeaway / Drive Service**
+“Contact the restaurant to confirm the available takeaway and drive-service options.”
+
+Add working CTA buttons:
+- “Call to Order” — use the restaurant phone number.
+- “Order on Glovo” — use a configurable Glovo restaurant URL.
+- “Contact Us” — navigate to the contact section.
+
+The supplied listing references Glovo but does not provide a confirmed restaurant-specific ordering URL. Do not invent one. Create a clearly named configuration variable for the verified Glovo link and provide a graceful fallback until it is added.
+
+## 12. Location and Contact Section
+
+Create a professional contact section with two columns.
+
+**Left column:**
+- Heading: “Visit Us in Tangier”.
+- Restaurant name in English and Arabic.
+- Address: Q5GX+88F, Avenue Mohammed V, Tangier 90000, Morocco.
+- Phone: +212 6 65 60 11 77.
+- Price range: 50–250 MAD per person.
+- Dine-in and delivery information.
+- Opening hours area driven by configurable data.
+- Buttons: “Get Directions” and “Call Restaurant”.
+
+**Right column:**
+- Embed a Google Maps map using a configurable Google Maps embed URL, or provide a map link if an embed cannot be configured.
+- Include a visible address and directions link so users can still navigate without the embed.
+
+Use a directions URL that searches for the restaurant name and address. Do not fabricate geographic coordinates.
+
+Make the telephone number clickable with a `tel:` link.
+
+## 13. Frequently Asked Questions
+
+Add an elegant accordion with these questions:
+
+1. Where is Restaurant Aljazeera Alarabia located?
+2. What type of cuisine does the restaurant serve?
+3. What is the average price per person?
+4. Does the restaurant offer delivery?
+5. Can I order online?
+6. How can I contact the restaurant?
+7. What are the opening hours?
+
+Answer using only the supplied information. For uncertain details, direct visitors to contact the restaurant instead of inventing an answer.
+
+The accordion must work with mouse, keyboard, and touch.
+
+## 14. Final Call-to-Action Section
+
+Create a visually distinctive, full-width deep-green section with subtle Arabian-inspired decoration.
+
+Headline: “Good Food. Great Company. Arabian Hospitality.”
+
+Supporting text: “Make your next meal in Tangier a flavorful experience.”
+
+Buttons:
+- “Explore the Menu”
+- “Call +212 6 65 60 11 77”
+- “Get Directions”
+
+Use excellent contrast, elegant typography, and a tasteful food photograph or decorative background.
+
+## 15. Footer
+
+Build a premium footer containing:
+
+- Restaurant logo and name in English and Arabic.
+- Short restaurant description.
+- Quick navigation links.
+- Address and clickable phone number.
+- Links to Instagram, Google Maps, and Glovo, using configurable URLs.
+- Service information.
+- Copyright line with the current year generated dynamically.
+- A subtle “Made with care in Tangier” message.
+
+Do not invent social media handles or links. Make them easy to configure once verified.
+
+## 16. Responsive Design
+
+The website must work beautifully on:
+- Desktop computers.
+- Laptops.
+- Tablets.
+- Mobile phones.
+
+Requirements:
+- No horizontal overflow.
+- Mobile-friendly typography and spacing.
+- Responsive navigation.
+- Properly sized images with consistent aspect ratios.
+- Touch-friendly buttons.
+- Responsive menu filters.
+- Accessible forms and interactive elements.
+- Correct RTL rendering for Arabic text.
+- A coherent visual experience across all screen sizes.
+
+## 17. Animations and Interaction
+
+Use subtle, professional animations:
+- Smooth section scrolling.
+- Fade-in and slight upward motion as sections enter the viewport.
+- Gentle image zoom on hover.
+- Button hover transitions.
+- Animated menu category filters.
+- Accordion transitions.
+- Gallery lightbox transitions.
+- Sticky-header transition.
+
+Respect `prefers-reduced-motion`. Avoid excessive animation, unnecessary parallax, and distracting effects.
+
+## 18. SEO and Performance
+
+Implement:
+- A meaningful page title: “Restaurant Aljazeera Alarabia | Yemeni Cuisine in Tangier”.
+- A compelling meta description.
+- Open Graph metadata.
+- A favicon or simple restaurant monogram.
+- Semantic heading hierarchy.
+- Descriptive image alt text.
+- Lazy loading for below-the-fold images.
+- Responsive image sizing where practical.
+- A local business JSON-LD schema using only known information.
+- Restaurant name, telephone, address, cuisine, and price range in structured data.
+- Aggregate rating data only when the implementation follows the applicable structured-data policies.
+- No fabricated ratings, reviews, coordinates, or business hours.
+- Fast initial rendering and minimal unnecessary dependencies.
+
+## 19. Accessibility
+
+Follow good accessibility practices:
+- Sufficient text/background contrast.
+- Visible keyboard focus states.
+- Keyboard-accessible navigation.
+- Descriptive labels for controls.
+- Proper button and link semantics.
+- Accessible accordion and lightbox interactions.
+- Appropriate ARIA attributes where needed.
+- Useful alt text for informative images.
+- Reduced-motion support.
+- Correct `lang` and `dir` attributes for English, French, and Arabic content.
+
+## 20. Code Quality and Project Structure
+
+Organize the application into reusable components, for example:
+
+- `Header`
+- `Hero`
+- `HighlightsBar`
+- `OurStory`
+- `MenuSection`
+- `MenuCard`
+- `GallerySection`
+- `Lightbox`
+- `ReviewsSection`
+- `ServicesSection`
+- `LocationSection`
+- `FAQSection`
+- `FinalCTA`
+- `Footer`
+
+Create a centralized restaurant configuration file containing:
+- Restaurant name and Arabic name.
+- Address and phone number.
+- Google Maps directions URL.
+- Google Maps reviews URL.
+- Google Maps embed URL.
+- Glovo ordering URL.
+- Instagram URL.
+- Opening hours.
+- Menu items and prices.
+- Restaurant rating and review count.
+
+Add sensible fallbacks for unavailable external links and images.
+
+Keep the code clean, modular, and easy for a non-expert restaurant owner or developer to update.
+
+## 21. Final Quality Assurance
+
+Before finishing:
+
+1. Install all dependencies and run the website.
+2. Fix all compilation and runtime errors.
+3. Check every navigation link and CTA.
+4. Test the menu filters.
+5. Test the gallery lightbox.
+6. Test the FAQ accordion.
+7. Verify that telephone and directions links work.
+8. Test mobile, tablet, and desktop layouts.
+9. Confirm that there are no invented restaurant details or fake testimonials.
+10. Confirm that all external links are configurable and clearly identified.
+11. Check image loading and add fallbacks.
+12. Verify accessibility basics and browser console errors.
+13. Provide a concise summary of the completed features and instructions for replacing placeholder images and adding verified restaurant links.
+
+## Final Design Goal
+
+Deliver a complete, polished restaurant website that looks premium, authentic, and trustworthy. It should be visually impressive enough to present to the restaurant owner as a professional website proposal.
+
+Prioritize exceptional UI/UX, beautiful food photography, a coherent Arabian-inspired brand identity, real functionality, responsive layouts, and maintainable code.
+
+**Start by building the complete website, not by returning a plan or asking me to implement the components manually.**

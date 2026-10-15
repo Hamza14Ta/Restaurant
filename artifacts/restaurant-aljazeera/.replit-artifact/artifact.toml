@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Restaurant Aljazeera Alarabia"
+description = "A polished, responsive website for Restaurant Aljazeera Alarabia in Tangier, featuring its Yemeni and Arabic cuisine, menu, guest review highlights, services, and contact information."
+version = "1.0.0"
+id = "artifacts/restaurant-aljazeera"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22895
+
+[services.development]
+run = "pnpm --filter @workspace/restaurant-aljazeera run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/restaurant-aljazeera", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/restaurant-aljazeera/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22895"
+BASE_PATH = "/"
