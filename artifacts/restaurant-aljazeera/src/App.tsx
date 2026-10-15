@@ -69,7 +69,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [category, setCategory] = useState<string>('All');
   const [activeImage, setActiveImage] = useState<number | null>(null);
-  const [activeFaq, setActiveFaq] = useState<number | null>(0);
+  const [activeFaq, setActiveFaq] = useState<number>(0);
 
   const visibleMenu = restaurant.menu.filter((item) => category === 'All' || item.category === category);
 
@@ -387,7 +387,7 @@ function App() {
               {restaurant.faqs.map((faq, index) => (
                 <div className={`faq-item ${activeFaq === index ? 'faq-open' : ''}`} key={faq.question} data-reveal>
                   <h3>
-                    <button type="button" aria-expanded={activeFaq === index} aria-controls={`faq-answer-${index}`} onClick={() => setActiveFaq(activeFaq === index ? null : index)}>
+                    <button type="button" aria-expanded={activeFaq === index} aria-controls={`faq-answer-${index}`} onClick={() => setActiveFaq(index)}>
                       <span>{faq.question}</span><ChevronDown size={18} />
                     </button>
                   </h3>
