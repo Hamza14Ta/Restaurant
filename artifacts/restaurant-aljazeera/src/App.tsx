@@ -33,10 +33,13 @@ function menuPriceLabel(item: MenuItem) {
 function BrandMark({ inverse = false }: { inverse?: boolean }) {
   return (
     <a href="#top" className={`brand-mark ${inverse ? 'brand-mark-inverse' : ''}`} aria-label={`${restaurant.name} home`}>
-      <span className="brand-seal" aria-hidden="true">
-        <span className="brand-sun">✦</span>
-        <span className="brand-arabic arabic" lang="ar" dir="rtl">الجزيرة</span>
-      </span>
+     <img
+        src="/images/Aljazeera Al Arabia Logo.png"
+        alt={restaurant.name}
+        className="brand-logo"
+        width={46}
+        height={46}
+      />
       <span className="brand-copy">
         <strong>ALJAZEERA</strong>
         <small>AL ARABIA · TANGIER</small>
