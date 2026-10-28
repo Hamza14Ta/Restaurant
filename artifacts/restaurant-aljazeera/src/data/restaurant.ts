@@ -23,7 +23,7 @@ export type GalleryItem = {
 export const restaurant = {
   name: 'Restaurant Aljazeera Alarabia',
   arabicName: 'مطعم الجزيرة العربية',
-  logo: '/public/images/Aljazeera Al Arabia Logo.png',
+  logo: '/images/Aljazeera Al Arabia Logo.png',
   cuisine: ['Yemeni cuisine', 'Arabic dishes', 'Middle Eastern food'],
   rating: 4.4,
   reviewCount: 485,
