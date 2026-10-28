@@ -44,8 +44,8 @@ function menuPriceLabel(item: MenuItem, fallbackPrice: string) {
 function BrandMark({ inverse = false, lang = 'en' }: { inverse?: boolean; lang?: Language }) {
   return (
     <a href="#top" className={`brand-mark ${inverse ? 'brand-mark-inverse' : ''}`} aria-label={`${restaurant.name} home`}>
-      <img
-        src="/images/Aljazeera Al Arabia Logo.png"
+     <img
+       src="/images/Aljazeera Al Arabia Logo.png"
         alt={restaurant.name}
         className="brand-logo"
         width={46}
